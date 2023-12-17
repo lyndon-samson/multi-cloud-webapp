@@ -6,6 +6,7 @@ from http.cookies import SimpleCookie
 from http.server import BaseHTTPRequestHandler
 from urllib.parse import parse_qsl, urlparse
 
+import os
 import http.server
 import socketserver
 
@@ -15,7 +16,7 @@ import logging
 
 print ("OK");
 
-conn = psycopg2.connect(database="postgres", host="127.0.0.1", user="postgres", password='123Hello$@', port="5432")
+conn = psycopg2.connect(database="postgres", host="127.0.0.1", user="postgres", password=os.environ["DB_PASS"], port="5432")
 
 
 cursor = conn.cursor()
