@@ -46,7 +46,7 @@ class S(BaseHTTPRequestHandler):
         logging.info("GET request,\nPath: %s\nHeaders:\n%s\n", str(self.path), str(self.headers))
         self._set_response()
         #self.wfile.write("GET request for {}".format(self.path).encode('utf-8'))
-        self.server.cursor.execute("SELECT * FROM X order by random() limit 1")
+        self.server.cursor.execute("SELECT * FROM quotes  order by random() limit 1")
         resp=cursor.fetchone()[0]
 
         r= """
